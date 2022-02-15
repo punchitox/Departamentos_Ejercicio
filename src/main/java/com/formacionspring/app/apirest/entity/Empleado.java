@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,10 +33,18 @@ public class Empleado implements Serializable{
 	private float salario;
 	private int telefono;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="departamento_id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private long idDep;
+	private Departamento departamento;
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
 
 	public long getId() {
 		return id;
@@ -70,13 +78,6 @@ public class Empleado implements Serializable{
 		this.telefono = telefono;
 	}
 
-	public long getIdDep() {
-		return idDep;
-	}
-
-	public void setIdDep(long idDep) {
-		this.idDep = idDep;
-	}
 
 	public String getDni() {
 		return dni;

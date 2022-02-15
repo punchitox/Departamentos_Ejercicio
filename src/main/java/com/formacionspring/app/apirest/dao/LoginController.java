@@ -8,14 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.formacionspring.app.apirest.entity.Departamento;
 import com.formacionspring.app.apirest.entity.Login;
 import com.formacionspring.app.apirest.service.LoginService;
 
@@ -26,7 +23,7 @@ public class LoginController {
 	@Autowired
 	LoginService servicio;
 	
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public ResponseEntity<?> login( @RequestParam String usuario, @RequestParam String contrasenia){
 		
 		Map<String,Object> response = new HashMap<>();
@@ -36,10 +33,11 @@ public class LoginController {
 		
 		try{
 			List<Login> logins =servicio.findAll();
-			
+
 			for (Login login : logins) {
-				if(usuario == login.getUsuario()) {
-					if(contrasenia == login.getContrasenia()) {
+				if(usuario.equals(login.getUsuario())) {
+					usuarioBool = true;
+					if(contrasenia.equals(login.getContrasenia())) {
 						logueado = true;
 						break;
 					}

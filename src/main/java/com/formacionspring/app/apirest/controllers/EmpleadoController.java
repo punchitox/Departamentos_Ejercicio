@@ -93,7 +93,7 @@ public class EmpleadoController {
 			empleadoUpdate.setDni(empleado.getDni());
 			empleadoUpdate.setSalario(empleado.getSalario());
 			empleadoUpdate.setTelefono(empleado.getTelefono());
-			empleadoUpdate.setIdDep(empleado.getIdDep());
+			empleadoUpdate.setDepartamento(empleado.getDepartamento());
 			
 			servicio.save(empleadoUpdate);
 			
@@ -109,7 +109,7 @@ public class EmpleadoController {
 		return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/jefes/{id}")
+	@DeleteMapping("/empleados/{id}")
 	public ResponseEntity<?> deleteEmpleado(@PathVariable Long id) {
 
 		Empleado empleadoBorrado = servicio.findById(id);

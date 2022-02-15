@@ -73,8 +73,8 @@ public class JefeController {
 			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
-		response.put("mensaje", "El cliente ha sido creado con exito!");
-		response.put("cliente", jefeNew);
+		response.put("mensaje", "El jefe ha sido creado con exito!");
+		response.put("jefe", jefeNew);
 		
 		return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
 		
@@ -93,7 +93,7 @@ public class JefeController {
 			jefeUpdate.setDni(jefe.getDni());
 			jefeUpdate.setSalario(jefe.getSalario());
 			jefeUpdate.setTelefono(jefe.getTelefono());
-			jefeUpdate.setIdDep(jefe.getIdDep());
+			jefeUpdate.setDepartamento(jefe.getDepartamento());
 			
 			servicio.save(jefeUpdate);
 			
@@ -117,7 +117,7 @@ public class JefeController {
 		Map<String,Object> response = new HashMap<>();
 		
 		if(jefeBorrado == null) {
-			response.put("mensaje", "El cliente ID: ".concat(id.toString().concat(" no existe en la base de datos")));
+			response.put("mensaje", "El jefe ID: ".concat(id.toString().concat(" no existe en la base de datos")));
 			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.NOT_FOUND);
 		}
 		
@@ -134,7 +134,7 @@ public class JefeController {
 		
 		
 		
-		response.put("mensaje", "El cliente ha sido borrado con exito!");
+		response.put("mensaje", "El jefe ha sido borrado con exito!");
 		response.put("jefe", jefeBorrado);
 		return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
 
