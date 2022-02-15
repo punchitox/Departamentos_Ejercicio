@@ -1,8 +1,5 @@
 package com.formacionspring.app.apirest.controllers;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.formacionspring.app.apirest.entity.Empleado;
 import com.formacionspring.app.apirest.entity.Jefe;
 import com.formacionspring.app.apirest.service.JefeService;
 
