@@ -39,6 +39,12 @@ public class Departamento implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	
 

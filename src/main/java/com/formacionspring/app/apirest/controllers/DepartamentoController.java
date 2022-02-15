@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.formacionspring.app.apirest.entity.Departamento;
-import com.formacionspring.app.apirest.entity.Jefe;
 import com.formacionspring.app.apirest.service.DepartamentoService;
 
 @RestController
