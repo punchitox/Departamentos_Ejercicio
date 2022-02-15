@@ -2,6 +2,7 @@ package com.formacionspring.app.apirest.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,9 @@ public class Jefe implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(unique = true)
+	private String dni;
 	
 	private String Nombre;
 	private float salario;
@@ -74,6 +78,14 @@ public class Jefe implements Serializable{
 
 	public void setIdDep(long idDep) {
 		this.idDep = idDep;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 	
 	
